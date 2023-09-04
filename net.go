@@ -224,8 +224,8 @@ func startIncomingComms(conn io.Reader,
 				output <- incomingComms{incomingPub: m}
 			case *packets.PubackPacket:
 				DEBUG.Println(NET, "startIncomingComms: received puback, id:", m.MessageID)
-				c.getToken(m.MessageID).flowComplete()
-				c.freeID(m.MessageID)
+				//c.getToken(m.MessageID).flowComplete()
+				//c.freeID(m.MessageID)
 			case *packets.PubrecPacket:
 				DEBUG.Println(NET, "startIncomingComms: received pubrec, id:", m.MessageID)
 				prel := packets.NewControlPacket(packets.Pubrel).(*packets.PubrelPacket)
